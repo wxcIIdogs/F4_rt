@@ -1,0 +1,104 @@
+---- DIR Matches (106 in 28 files) ----
+Dfs_elm.c (components\dfs\filesystems\elmfat):/* ELM FatFs provide a DIR struct */
+Dfs_elm.c (components\dfs\filesystems\elmfat):        DIR *dir;
+Dfs_elm.c (components\dfs\filesystems\elmfat):        dir = (DIR *)rt_malloc(sizeof(DIR));
+Dfs_elm.c (components\dfs\filesystems\elmfat):        DIR *dir;
+Dfs_elm.c (components\dfs\filesystems\elmfat):        dir = (DIR *)rt_malloc(sizeof(DIR));
+Dfs_elm.c (components\dfs\filesystems\elmfat):        DIR *dir;
+Dfs_elm.c (components\dfs\filesystems\elmfat):        dir = (DIR *)(file->data);
+Dfs_elm.c (components\dfs\filesystems\elmfat):        DIR *dir;
+Dfs_elm.c (components\dfs\filesystems\elmfat):        dir = (DIR *)(file->data);
+Dfs_elm.c (components\dfs\filesystems\elmfat):    DIR *dir;
+Dfs_elm.c (components\dfs\filesystems\elmfat):    dir = (DIR *)(file->data);
+Dfs_file.c (components\dfs\src):                        rt_kprintf("%-25s\n", "<DIR>");
+Dfs_posix.c (components\dfs\src): * @return the DIR pointer of directory, NULL on open directory failed.
+Dfs_posix.c (components\dfs\src):DIR *opendir(const char *name)
+Dfs_posix.c (components\dfs\src):    DIR *t;
+Dfs_posix.c (components\dfs\src):        t = (DIR *) rt_malloc(sizeof(DIR));
+Dfs_posix.c (components\dfs\src):            rt_memset(t, 0, sizeof(DIR));
+Dfs_posix.c (components\dfs\src):struct dirent *readdir(DIR *d)
+Dfs_posix.c (components\dfs\src):long telldir(DIR *d)
+Dfs_posix.c (components\dfs\src):void seekdir(DIR *d, off_t offset)
+Dfs_posix.c (components\dfs\src):void rewinddir(DIR *d)
+Dfs_posix.c (components\dfs\src):int closedir(DIR *d)
+Dfs_posix.c (components\dfs\src):    DIR *d;
+Dfs_posix.h (components\dfs\include):} DIR;
+Dfs_posix.h (components\dfs\include):DIR *opendir(const char *name);
+Dfs_posix.h (components\dfs\include):struct dirent *readdir(DIR *d);
+Dfs_posix.h (components\dfs\include):long telldir(DIR *d);
+Dfs_posix.h (components\dfs\include):void seekdir(DIR *d, off_t offset);
+Dfs_posix.h (components\dfs\include):void rewinddir(DIR *d);
+Dfs_posix.h (components\dfs\include):int closedir(DIR* d);
+Dirent.c (examples\libc):	DIR * dirp;
+Dirent.h (components\libc\newlib\sys):} DIR;
+Dirent.h (components\libc\newlib\sys):int            closedir(DIR *);
+Dirent.h (components\libc\newlib\sys):DIR           *opendir(const char *);
+Dirent.h (components\libc\newlib\sys):struct dirent *readdir(DIR *);
+Dirent.h (components\libc\newlib\sys):int            readdir_r(DIR *, struct dirent *, struct dirent **);
+Dirent.h (components\libc\newlib\sys):void           rewinddir(DIR *);
+Dirent.h (components\libc\newlib\sys):void           seekdir(DIR *, long int);
+Dirent.h (components\libc\newlib\sys):long           telldir(DIR *);
+Espruino.c (components\external\espruino\targets\rtthread):  DIR *dir = opendir(TEST_DIR);
+Ff.c (components\dfs\filesystems\elmfat):	DIR* dj,		/* Directory object pointing the file to be checked */
+Ff.c (components\dfs\filesystems\elmfat):	DIR* dj,	/* Directory object pointing the file to register or increment */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,		/* Pointer to directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,		/* Pointer to directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj			/* Pointer to the directory object linked to the file name */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj			/* Pointer to the directory object that pointing the entry to be read */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj				/* Target directory with object name to be created */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj				/* Directory object pointing the entry to be removed */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,			/* Pointer to the directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,			/* Pointer to the directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,			/* Directory object to return last directory and found object */
+Ff.c (components\dfs\filesystems\elmfat):	sysect = nrsv + fasize + fs->n_rootdir / (SS(fs) / SZ_DIR);	/* RSV+FAT+DIR */
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):			if (dir[DIR_Attr] & (AM_RDO | AM_DIR)) {	/* Cannot overwrite it (R/O or DIR) */
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,			/* Pointer to directory object to create */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,			/* Pointer to the open directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR *dj,		/* Pointer to the open directory object */
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj, sdj;
+Ff.c (components\dfs\filesystems\elmfat):					mem_cpy(&sdj, &dj, sizeof(DIR));	/* Check if the sub-dir is empty or not */
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR dj;
+Ff.c (components\dfs\filesystems\elmfat):	DIR djo, djn;
+Ff.c (components\dfs\filesystems\elmfat):				mem_cpy(&djn, &djo, sizeof(DIR));		/* Check new object */
+Ff.h (components\dfs\filesystems\elmfat):/* Directory object structure (DIR) */
+Ff.h (components\dfs\filesystems\elmfat):} DIR;
+Ff.h (components\dfs\filesystems\elmfat):FRESULT f_opendir (DIR*, const TCHAR*);				/* Open an existing directory */
+Ff.h (components\dfs\filesystems\elmfat):FRESULT f_readdir (DIR*, FILINFO*);					/* Read a directory item */
+Ff.h (components\dfs\filesystems\elmfat):FRESULT f_seekdir(DIR *dj, int offset);				/* Seek in directory */
+Ftpd.c (components\net\lwip-1.3.2\apps):	DIR* dirp;
+Ftpd.c (components\net\lwip-1.3.2\apps):	DIR* dirp;
+Ftrandom.c (components\external\freetype\src\tools\ftrandom):      DIR*            examples;
+Jffs2_config.h (components\dfs\filesystems\jffs2): * |   .                   <DIR>   |
+Jffs2_config.h (components\dfs\filesystems\jffs2): * |   ..                  <DIR>   |
+Jffs2_config.h (components\dfs\filesystems\jffs2): * |   dir1                <DIR>   |
+Listdir.c (examples\file):	DIR *dir;
+Listdir.c (examples\file):				rt_kprintf("%s\t\t<DIR>\n", dirent->d_name);
+Msh.c (components\finsh):    DIR *dir = RT_NULL;
+Seekdir.c (examples\file):	DIR * dirp;
+Stm32f4xx_dma.c (bsp\stm32f40x\libraries\stm32f4xx_stdperiph_driver\src):  /* Clear CHSEL, MBURST, PBURST, PL, MSIZE, PSIZE, MINC, PINC, CIRC and DIR bits */
+Stm32f4xx_dma.c (bsp\stm32f40x\libraries\stm32f4xx_stdperiph_driver\src):  /* Set DIR bits according to DMA_DIR value */
+Stm32f4xx_dma.c (doc\stm32f407vet6vgt6开发板\实验2 按键\fwlib\src):  /* Clear CHSEL, MBURST, PBURST, PL, MSIZE, PSIZE, MINC, PINC, CIRC and DIR bits */
+Stm32f4xx_dma.c (doc\stm32f407vet6vgt6开发板\实验2 按键\fwlib\src):  /* Set DIR bits according to DMA_DIR value */
+Stm32f4xx_dma.c (doc\stm32f407vet6vgt6开发板\实验3 中断\fwlib\src):  /* Clear CHSEL, MBURST, PBURST, PL, MSIZE, PSIZE, MINC, PINC, CIRC and DIR bits */
+Stm32f4xx_dma.c (doc\stm32f407vet6vgt6开发板\实验3 中断\fwlib\src):  /* Set DIR bits according to DMA_DIR value */
+Stm32f4xx_sdio.h (bsp\stm32f40x\libraries\stm32f4xx_stdperiph_driver\inc):#define IS_SDIO_TRANSFER_DIR(DIR) (((DIR) == SDIO_TransferDir_ToCard) || \
+Stm32f4xx_sdio.h (bsp\stm32f40x\libraries\stm32f4xx_stdperiph_driver\inc):                                   ((DIR) == SDIO_TransferDir_ToSDIO))
+Stm32f4xx_sdio.h (doc\stm32f407vet6vgt6开发板\实验2 按键\fwlib\inc):#define IS_SDIO_TRANSFER_DIR(DIR) (((DIR) == SDIO_TransferDir_ToCard) || \
+Stm32f4xx_sdio.h (doc\stm32f407vet6vgt6开发板\实验2 按键\fwlib\inc):                                   ((DIR) == SDIO_TransferDir_ToSDIO))
+Stm32f4xx_sdio.h (doc\stm32f407vet6vgt6开发板\实验3 中断\fwlib\inc):#define IS_SDIO_TRANSFER_DIR(DIR) (((DIR) == SDIO_TransferDir_ToCard) || \
+Stm32f4xx_sdio.h (doc\stm32f407vet6vgt6开发板\实验3 中断\fwlib\inc):                                   ((DIR) == SDIO_TransferDir_ToSDIO))
+Stm32f4xx_tim.c (bsp\stm32f40x\libraries\stm32f4xx_stdperiph_driver\src):  /* Reset the CMS and DIR Bits */
+Stm32f4xx_tim.c (doc\stm32f407vet6vgt6开发板\实验2 按键\fwlib\src):  /* Reset the CMS and DIR Bits */
+Stm32f4xx_tim.c (doc\stm32f407vet6vgt6开发板\实验3 中断\fwlib\src):  /* Reset the CMS and DIR Bits */
+Uffs_fd.c (components\dfs\filesystems\uffs\src\uffs): * \brief POSIX DIR
+Uffs_fs.c (components\dfs\filesystems\uffs\src\uffs):	// check the DIR or FILE block
+Uffs_fs.c (components\dfs\filesystems\uffs\src\uffs):	// ok, now we are safe to erase DIR/FILE block :-)
+Uffs_tree.c (components\dfs\filesystems\uffs\src\uffs):				"DIR %d, FILE %d, DATA %d", st.dir, st.file, st.data);
+Uffs_tree.c (components\dfs\filesystems\uffs\src\uffs):	/***** step one: scan all page spares, classify DIR/FILE/DATA nodes,
+Uffs_tree.h (components\dfs\filesystems\uffs\src\inc\uffs):	{UFFS_TYPE_DIR, "DIR"}, \
