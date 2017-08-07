@@ -55,3 +55,15 @@
 .\build\application.o: ..\..\FATFS\ff.h
 .\build\application.o: ..\..\FATFS\integer.h
 .\build\application.o: ..\..\FATFS\ffconf.h
+.\build\application.o: ..\..\USB\STM32_USB_Device_Library\Class\msc\inc\usbd_msc_core.h
+.\build\application.o: ..\..\USB\STM32_USB_Device_Library\Core\inc\usbd_ioreq.h
+.\build\application.o: ..\..\USB\STM32_USB_Device_Library\Core\inc\usbd_def.h
+.\build\application.o: ..\..\USB\USB_APP\usbd_conf.h
+.\build\application.o: ..\..\USB\USB_APP\usb_conf.h
+.\build\application.o: ..\..\USB\STM32_USB_Device_Library\Core\inc\usbd_core.h
+.\build\application.o: ..\..\USB\STM32_USB_OTG_Driver\inc\usb_dcd.h
+.\build\application.o: ..\..\USB\STM32_USB_OTG_Driver\inc\usb_core.h
+.\build\application.o: ..\..\USB\STM32_USB_OTG_Driver\inc\usb_regs.h
+.\build\application.o: ..\..\USB\STM32_USB_OTG_Driver\inc\usb_defines.h
+.\build\application.o: ..\..\USB\STM32_USB_Device_Library\Core\inc\usbd_usr.h
+.\build\application.o: ..\..\USB\USB_APP\usbd_desc.h

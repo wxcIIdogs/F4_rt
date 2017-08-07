@@ -27,6 +27,9 @@
   */ 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
+
+
+
 #ifndef __STM324x9I_EVAL_SDIO_SD_H
 #define __STM324x9I_EVAL_SDIO_SD_H
 
@@ -36,6 +39,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
+	 
+
 
 /** @addtogroup Utilities
   * @{
@@ -318,7 +323,7 @@ typedef struct
 /* Uncomment the following line to select the SDIO Data transfer mode */  
 #if !defined (SD_DMA_MODE) && !defined (SD_POLLING_MODE)
 #define SD_DMA_MODE                                ((uint32_t)0x00000000)
-/*#define SD_POLLING_MODE                            ((uint32_t)0x00000002)*/
+//#define SD_POLLING_MODE                            ((uint32_t)0x00000002)
 #endif
 
 /**
@@ -379,9 +384,12 @@ void SD_ProcessDMAIRQ(void);
 SD_Error SD_WaitReadOperation(void);
 SD_Error SD_WaitWriteOperation(void);
 SD_Error SD_HighSpeed(void);
+u8 SD_WriteDisk(u8*buf,u32 sector,u8 cnt);
+u8 SD_ReadDisk(u8*buf,u32 sector,u8 cnt);
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* __STM324x9I_EVAL_SDIO_SD_H */
 /**

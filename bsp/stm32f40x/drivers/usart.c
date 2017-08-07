@@ -745,3 +745,10 @@ int stm32_hw_usart_init(void)
     return 0;
 }
 INIT_BOARD_EXPORT(stm32_hw_usart_init);
+
+#include "stdio.h"
+int fputc(int ch, FILE *f)
+{
+	return ch;
+}
+

@@ -49,3 +49,4 @@
 .\build\usart.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\usart.o: ..\..\components\drivers\include\rtdevice.h
+.\build\usart.o: E:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

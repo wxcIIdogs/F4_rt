@@ -35,3 +35,4 @@
 .\build\bsp_sdio_sd.o: Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h
 .\build\bsp_sdio_sd.o: Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\build\bsp_sdio_sd.o: Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
+.\build\bsp_sdio_sd.o: E:\keil5\ARM\ARMCC\Bin\..\include\string.h

@@ -45,6 +45,12 @@
 #endif
 /*end:add by wxc : in 2017.07.19 for add sdio and SD card */	
 
+#ifdef RT_USING_USB_DEVICE_SD
+#include "usbd_msc_core.h"
+#include "usbd_usr.h"
+#include "usbd_desc.h"
+#include "usb_conf.h" 
+#endif
 rt_thread_t tid[10];
 
 void rt_init_thread_entry(void* parameter)
@@ -121,6 +127,7 @@ void rt_serial_thread_entry(void* parameter)
 
 /*begin:add by wxc : in 2017.07.19 for add sdio and SD card */		
 #ifdef RT_USING_SDIO_DFS
+
 FATFS fs;													/* FatFs文件系统对象 */
 FIL fnew;													/* 文件对象 */
 FRESULT res_sd;                /* 文件操作结果 */
@@ -190,6 +197,20 @@ void rt_dfs_thread_entry(void* parameter)
 #endif
 /*end:add by wxc : in 2017.07.19 for add sdio and SD card */	
 
+#ifdef RT_USING_USB_DEVICE_SD
+
+USB_OTG_CORE_HANDLE USB_OTG_dev;
+
+void rt_usb_thread_entry(void* parameter)
+{
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2	
+	USBD_Init(&USB_OTG_dev,USB_OTG_FS_CORE_ID,&USR_desc,&USBD_MSC_cb,&USR_cb);
+	for(;;)
+	{
+		rt_thread_delay(100);
+	}
+}
+#endif
 
 int rt_application_init()
 {
@@ -225,7 +246,16 @@ int rt_application_init()
         rt_thread_startup(tid[i]);
 		i++;
 #endif
-/*end:add by wxc : in 2017.07.19 for add sdio and SD card */				
+/*end:add by wxc : in 2017.07.19 for add sdio and SD card */		
+#ifdef RT_USING_USB_DEVICE_SD
+    tid[i] = rt_thread_create("USB",
+        rt_usb_thread_entry, RT_NULL,
+        2048*10, RT_THREAD_PRIORITY_MAX/4, 19);
+
+    if (tid[i] != RT_NULL)
+        rt_thread_startup(tid[i]);
+		i++;
+#endif		
     return 0;
 }
 

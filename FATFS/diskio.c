@@ -17,9 +17,9 @@
 #define SPI_FLASH		       1     // 预留外部SPI Flash使用
 
 #define SD_BLOCKSIZE     512 
-
+#ifdef USB_SD_BSP
 extern  SD_CardInfo SDCardInfo;
-
+#endif
 /*-----------------------------------------------------------------------*/
 /* 获取设备状态                                                          */
 /*-----------------------------------------------------------------------*/
@@ -28,7 +28,7 @@ DSTATUS disk_status (
 )
 {
 	DSTATUS status = STA_NOINIT;
-	
+	#ifdef USB_SD_BSP
 	switch (pdrv) {
 		case ATA:	/* SD CARD */
 			status &= ~STA_NOINIT;
@@ -40,6 +40,7 @@ DSTATUS disk_status (
 		default:
 			status = STA_NOINIT;
 	}
+	#endif
 	return status;
 }
 
@@ -51,6 +52,7 @@ DSTATUS disk_initialize (
 )
 {
 	DSTATUS status = STA_NOINIT;	
+	#ifdef USB_SD_BSP
 	switch (pdrv) {
 		case ATA:	         /* SD CARD */
 			if(SD_Init()==SD_OK)
@@ -70,6 +72,7 @@ DSTATUS disk_initialize (
 		default:
 			status = STA_NOINIT;
 	}
+	#endif
 	return status;
 }
 
@@ -85,6 +88,7 @@ DRESULT disk_read (
 )
 {
 	DRESULT status = RES_PARERR;
+	#ifdef USB_SD_BSP
 	SD_Error SD_state = SD_OK;
 	
 	switch (pdrv) {
@@ -127,6 +131,7 @@ DRESULT disk_read (
 		default:
 			status = RES_PARERR;
 	}
+	#endif
 	return status;
 }
 
@@ -142,6 +147,7 @@ DRESULT disk_write (
 )
 {
 	DRESULT status = RES_PARERR;
+	#ifdef USB_SD_BSP
 	SD_Error SD_state = SD_OK;
 	
 	if (!count) {
@@ -189,6 +195,7 @@ DRESULT disk_write (
 		default:
 			status = RES_PARERR;
 	}
+	#endif
 	return status;
 }
 #endif
@@ -206,6 +213,7 @@ DRESULT disk_ioctl (
 )
 {
 	DRESULT status = RES_PARERR;
+	#ifdef USB_SD_BSP
 	switch (pdrv) {
 		case ATA:	/* SD CARD */
 			switch (cmd) 
@@ -234,13 +242,14 @@ DRESULT disk_ioctl (
 		default:
 			status = RES_PARERR;
 	}
+	#endif
 	return status;
 }
 #endif
 
 __weak DWORD get_fattime(void) {
 	/* 返回当前时间戳 */
-	return	  ((DWORD)(2015 - 1980) << 25)	/* Year 2015 */
+	return	  ((DWORD)(2017 - 1980) << 25)	/* Year 2015 */
 			| ((DWORD)1 << 21)				/* Month 1 */
 			| ((DWORD)1 << 16)				/* Mday 1 */
 			| ((DWORD)0 << 11)				/* Hour 0 */
