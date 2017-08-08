@@ -12,7 +12,7 @@
 #define RT_THREAD_PRIORITY_MAX	32
 
 /* Tick per Second */
-#define RT_TICK_PER_SECOND	1000
+#define RT_TICK_PER_SECOND	10000
 
 /* SECTION: RT_DEBUG */
 /* Thread Debug */
@@ -174,7 +174,7 @@
 /*begin:add by wxc : in 2017.07.19 for add sdio and SD card */	
 #define RT_USING_SDIO_DFS
 /*end:add by wxc : in 2017.07.19 for add sdio and SD card */	
-
+/*begin:add by wxc : in 2017.08.07 for add usb slave*/	
 #define RT_USING_USB_DEVICE_SD
-
+/*end:add by wxc : in 2017.08.07 for add usb slave*/	
 #endif

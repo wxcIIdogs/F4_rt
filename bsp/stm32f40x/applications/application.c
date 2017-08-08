@@ -105,14 +105,11 @@ void rt_serial_thread_entry(void* parameter)
 	serial1.parent.open(Usart1,RT_DEVICE_FLAG_RDWR | RT_DEVICE_FLAG_INT_RX | RT_DEVICE_FLAG_DMA_RX);
 	rt_uint8_t buff[1025];
 	rt_uint8_t sendbuff[1025];
-	
-	
-	
 	for(;;)
 	{
 		rt_thread_delay(1);
 		//serial1.parent.write(Usart1,0,(rt_uint8_t *)"hello world wxc,RT\r\n",20);				
-		int recvCount = serial1.parent.read(Usart1,0,&buff[0],1000);
+		int recvCount = Usart1->read(Usart1,0,&buff[0],1000);
 		if(recvCount > 0)
 		{
 			sprintf((char *)sendbuff,"%d,%s\r\n",recvCount,buff);
@@ -191,12 +188,11 @@ void rt_dfs_thread_entry(void* parameter)
 	for(;;)
 	{
 		rt_thread_delay(100);
-			
 	}
 }
 #endif
-/*end:add by wxc : in 2017.07.19 for add sdio and SD card */	
-
+/*end:add by wxc : in 2017.07.19 for add sdio and SD card fatfs*/	
+/*begin:add by wxc : in 2017.08.07 for add usb slave*/	
 #ifdef RT_USING_USB_DEVICE_SD
 
 USB_OTG_CORE_HANDLE USB_OTG_dev;
@@ -211,14 +207,14 @@ void rt_usb_thread_entry(void* parameter)
 	}
 }
 #endif
-
+/*end:add by wxc : in 2017.08.07 for add usb slave*/	
 int rt_application_init()
 {
     
 		int i = 0 ;
     tid[i] = rt_thread_create("init",
         rt_init_thread_entry, RT_NULL,
-        2048, RT_THREAD_PRIORITY_MAX/3, 20);
+        1024, RT_THREAD_PRIORITY_MAX/3, 20);
 
     if (tid[i] != RT_NULL)
         rt_thread_startup(tid[i]);
@@ -240,23 +236,26 @@ int rt_application_init()
 #ifdef RT_USING_SDIO_DFS
     tid[i] = rt_thread_create("SD0",
         rt_dfs_thread_entry, RT_NULL,
-        2048*2, RT_THREAD_PRIORITY_MAX/3 +2, 19);
+        2048, RT_THREAD_PRIORITY_MAX/3 +2, 19);
 
     if (tid[i] != RT_NULL)
         rt_thread_startup(tid[i]);
 		i++;
 #endif
-/*end:add by wxc : in 2017.07.19 for add sdio and SD card */		
+/*end:add by wxc : in 2017.07.19 for add sdio and SD card */	
+
+/*begin:add by wxc : in 2017.08.07 for add usb slave*/			
 #ifdef RT_USING_USB_DEVICE_SD
     tid[i] = rt_thread_create("USB",
         rt_usb_thread_entry, RT_NULL,
-        2048*10, RT_THREAD_PRIORITY_MAX/4, 19);
+        2048, RT_THREAD_PRIORITY_MAX/4, 19);
 
     if (tid[i] != RT_NULL)
         rt_thread_startup(tid[i]);
 		i++;
 #endif		
-    return 0;
+/*end:add by wxc : in 2017.08.07 for add usb slave*/	
+		return 0;
 }
 
 /*@}*/
