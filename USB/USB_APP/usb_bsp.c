@@ -82,7 +82,7 @@ void rt_hw_ms_delay(uint32_t us)
 {
     rt_uint32_t delta;
 
-    us = us * (SysTick->LOAD/(1000/RT_TICK_PER_SECOND));
+    us = us * (SysTick->LOAD / (1000/RT_TICK_PER_SECOND));
 
         /* ?????? */
     delta = SysTick->VAL;
